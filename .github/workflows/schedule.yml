@@ -8,8 +8,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
+      - name: Check out code with token
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Python environment
         uses: actions/setup-python@v2
@@ -20,12 +22,10 @@ jobs:
         run : |
           python -m pip install --upgrade pip
           pip install pandas geopy requests beautifulsoup4
-
-      # Note that you would replace "user_location_gen_2.py" with the actual path to your .py file in the repository.
       
       - name : Run Python script 
         run : python xml_to_seoul_data_1.py
-
+      
       # Check if seoul_data_temp.csv is created successfully.
       
       - name : List files in the current directory 
@@ -35,7 +35,7 @@ jobs:
       
       - name : Commit and push if changes 
         run : |
-          git config --local user.email "sunwoo209@github.com"
+          git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add seoul_data_temp.csv 
           git commit -m "Add updated csv file" && git push || echo "No changes to commit"
