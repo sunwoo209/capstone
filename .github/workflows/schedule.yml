@@ -35,7 +35,7 @@ jobs:
       
       - name : Commit and push if changes 
         run : |
-          git config --local user.email "action@github.com"
+          git config --local user.email "sunwoo209@github.com"
           git config --local user.name "GitHub Action"
           git add seoul_data_temp.csv 
           git commit -m "Add updated csv file" && git push || echo "No changes to commit"
