@@ -139,12 +139,14 @@ def process_data(df, apiKey):
 def main():
     create_df()
     print("dateframe create!")
+    
     # Google Cloud Platform API key 입력하는부분
-    apiKey ='AIzaSyCIMKh4bchhEumjQRRWEURQ6zsQN7xFUQk'
+    apiKey = os.getenv('GOOGLE_API_KEY')
 
     # 데이터 로드 
     seoul_df = pd.read_csv('seoul_data_temp.csv')  
     print("csv_temp create!")
+    
     process_data(seoul_df, apiKey)
 
 if __name__ == "__main__":
