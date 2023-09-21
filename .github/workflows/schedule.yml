@@ -4,6 +4,7 @@ on:
     # 매 분마다 실행 (UTC 기준)
     - cron: '*/1 * * * *'
 
+
 jobs:
   build:
     runs-on: ubuntu-latest
