@@ -7,7 +7,7 @@ import re
 
 def create_df():
     url = 'http://openapi.seoul.go.kr:8088/725069536873756e313030706965574d/xml/citydata/1/5/POI'
-    area = ["{:03}".format(n) for n in range(1, 5)]#POI1 이 아닌 POI001로 만들기위한 처리 113번까지 있음
+    area = ["{:03}".format(n) for n in range(1, 114)]#POI1 이 아닌 POI001로 만들기위한 처리 113번까지 있음
 
     list_of_dfs = []#초기화
 
