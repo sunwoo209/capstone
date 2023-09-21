@@ -1,9 +1,9 @@
+import os 
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
 from functools import partial
 import re
-import os
 
 def create_df():
     url = 'http://openapi.seoul.go.kr:8088/725069536873756e313030706965574d/xml/citydata/1/5/POI'
