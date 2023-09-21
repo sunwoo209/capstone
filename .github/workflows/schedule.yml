@@ -1,0 +1,27 @@
+name: Run Python script
+on:
+  schedule:
+    # 매 시간마다 실행 (UTC 기준)
+    - cron: '0 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Setup Python environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run : |
+          python -m pip install --upgrade pip
+
+      # Note that you would replace "your_script.py" with the actual path to your .py file in the repository.
+      
+      - name : Run Python script 
+        run : xml_to_seoul_data_1.py
+
