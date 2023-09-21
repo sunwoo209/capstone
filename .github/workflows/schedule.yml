@@ -2,7 +2,7 @@ name: Run Python script
 on:
   schedule:
     # 매 시간마다 실행 (UTC 기준)
-    - cron: '0 * * * *'
+    - cron: '*/1 * * * *'
 
 jobs:
   build:
