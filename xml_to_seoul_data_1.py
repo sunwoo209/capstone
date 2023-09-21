@@ -31,5 +31,5 @@ def main(user_location):
     print("csv create!")
 
 if __name__ == "__main__":
-   user_location_input = input("Please enter your location: ")
-   main(user_location_input)
+    user_location_input = input("Please enter your location: ")
+    main(user_location_input)
