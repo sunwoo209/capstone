@@ -3,6 +3,8 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from functools import partial
 import re
+import os
+
 def create_df():
     url = 'http://openapi.seoul.go.kr:8088/725069536873756e313030706965574d/xml/citydata/1/5/POI'
     area = ["{:03}".format(n) for n in range(1, 5)]#POI1 이 아닌 POI001로 만들기위한 처리 113번까지 있음
