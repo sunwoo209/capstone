@@ -1,10 +1,12 @@
+import os
 import pandas as pd 
 from geopy.geocoders import GoogleV3
 from geopy.distance import geodesic
 from datetime import datetime
 
 def lat_lng_gen(df, userloaction):
-    geolocator = GoogleV3(api_key='AIzaSyCIMKh4bchhEumjQRRWEURQ6zsQN7xFUQk')
+    apiKey = os.getenv('GOOGLE_API_KEY')
+    geolocator = GoogleV3(api_key=apiKey)
 
     location = geolocator.geocode(userloaction)
 
@@ -28,7 +30,6 @@ def main():
     seoul_df = pd.read_csv('seoul_data_temp.csv')
     seoul_df_updated = lat_lng_gen(seoul_df,"서울특별시 종로구 청계천로 41")
     create_csv(seoul_df_updated)
-    print("csv create!")
-
+    
 if __name__ == "__main__":
-    main()
+   main()
