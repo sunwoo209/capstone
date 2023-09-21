@@ -26,3 +26,16 @@ jobs:
       - name : Run Python script 
         run : python xml_to_seoul_data_1.py
 
+      # Check if seoul_data_temp.csv is created successfully.
+      
+      - name : List files in the current directory 
+        run : ls
+      
+      # Commit and push if changes
+      
+      - name : Commit and push if changes 
+        run : |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add seoul_data_temp.csv 
+          git commit -m "Add updated csv file" && git push || echo "No changes to commit"
