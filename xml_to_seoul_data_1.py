@@ -55,8 +55,8 @@ def create_df():
 
         selected_columns=['AREA_CD','AREA_NM', 'AREA_CONGEST_LVL', 'AREA_CONGEST_MSG', 
                             'AREA_PPLTN_MAX', 'PPLTN_TIME', 'ROAD_TRAFFIC_IDX',
-                            'ROAD_MSG','SUB_STN_NM','BUS_STN_ID',
-                            'RTE_NM','RTE_ID','TEMP','PRECPT_TYPE',
+                            'ROAD_MSG','SUB_STN_NM',
+                            'TEMP','PRECPT_TYPE',
                             'PCP_MSG','PM25','PM10']
 
         # DataFrame에 존재하는 컬럼만 선택
@@ -87,6 +87,17 @@ def create_df():
             
     seoul_df=pd.concat(list_of_dfs,axis=0, ignore_index=True)
 
+
+    
+    rte_counts = [68.0, 31.0, 111.0, 15.0, 101.0, 66.0, 61.0, 14.0, 93.0, 34.0, 1.0, 30.0, 32.0, 155.0, 18.0, 
+                    12.0, 34.0, 45.0, 35.0, 11.0, 25.0, 13.0, 17.0, 33.0, 10.0, 41.0, 25.0, 13.0, 59.0, 23.0, 35.0, 9.0, 134.0, 55.0, 31.0, 46.0, 50.0, 39.0, 32.0, 86.0, 141.0, 55.0, 41.0, 30.0, 23.0, 31.0, 9.0, 53.0, 16.0, 28.0, 28.0, 46.0, 45.0, 31.0, 57.0, 41.0, 6.0, 69.0, 23.0, 29.0, 48.0, 1.0, 33.0, 39.0, 13.0, 21.0, 20.0, 15.0, 42.0, 22.0, 22.0, 54.0, 28.0, 60.0, 7.0, 19.0, 14.0, 57.0, 39.0, 17.0, 57.0, 9.0, 19.0, 37.0, 19.0, 20.0, 0.0, 57.0, 2.0, 10.0, 26.0, 15.0, 1.0, 45.0, 16.0, 19.0, 40.0, 40.0, 18.0, 0.0, 11.0, 1.0, 25.0, 31.0, 13.0, 35.0, 10.0, 3.0, 31.0, 7.0, 20.0, 2.0, 4.0]
+    adjusted_rte_counts = rte_counts[:len(seoul_df)]
+    
+    seoul_df['RTE_COUNT'] = adjusted_rte_counts
+    
+    
+    
+    
     seoul_df.to_csv('seoul_data_temp.csv', index=False, encoding='utf-8-sig')
 
 def get_lat_lng(apiKey, address):
