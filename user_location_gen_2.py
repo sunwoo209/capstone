@@ -4,7 +4,9 @@ from geopy.distance import geodesic
 from datetime import datetime
 
 def lat_lng_gen(df, userloaction):
-    geolocator = GoogleV3(api_key='AIzaSyCIMKh4bchhEumjQRRWEURQ6zsQN7xFUQk')
+    apiKey = os.getenv('GOOGLE_API_KEY')
+    geolocator = GoogleV3(api_key=apiKey)
+
 
     location = geolocator.geocode(userloaction)
 
