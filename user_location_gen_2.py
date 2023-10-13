@@ -68,7 +68,8 @@ def create_csv(df):
     df.to_csv('seoul_data.csv', index=False, encoding='utf-8-sig') # 갱신되면 기존건 사라지는 파일
         
 def main(user_location):
-    seoul_df = pd.read_csv('seoul_data_temp.csv')
+    url = 'https://raw.githubusercontent.com/sunwoo209/capstone/main/seoul_data_temp.csv'
+    seoul_df = pd.read_csv(url)
     seoul_df.fillna(0, inplace=True) #결측값을 모두 0으로
     seoul_df_updated = lat_lng_gen(seoul_df,user_location)
     seoul_df_updated = use_distance_create_model_point(seoul_df_updated)
