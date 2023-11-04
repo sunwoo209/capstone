@@ -1,7 +1,7 @@
 name: Run Python script and commit result
 on:
   schedule:
-    # 매 정오마다 실행
+    # 매 정시마다 실행
     - cron: '0 * * * *'
 
 
